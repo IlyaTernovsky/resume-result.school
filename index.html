@@ -6,86 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Resume, cv, Ilya">
     <meta name="description" content="Это сайт-резюме Ильи Терновского">
+    <link rel="stylesheet" href="style.css">
     <title>Ilya Resume</title>
 </head>
 <body>
-    <img src="imgs/avatar.jpg" width="150" alt="аватар Илья Терновский">
 
-    <h1>Илья Терновский</h1>
-    
-    <p>Я <strong> работаю поваром</strong> и <strong>изучаю вэб-разработку</strong> в свободное время.</p>
+    <div class="container">
 
-    <p>Я люблю <em> смотреть кино, играть в футбол, готовить и изучать разработку.</em></p>
+        <div class="info">
+            <img src="imgs/avatar.jpg" alt="аватар Илья Терновский" class="avatar">
 
-    <h3><strong>Список социальных сетей:</strong></h3>
+            <div class="info-text">
+                <h1>Илья Терновский</h1>
+                
+                <p>Я <strong> работаю поваром</strong> и <strong>изучаю вэб-разработку</strong> в свободное время.</p>
 
-    <a href="https://vk.com/id97466669" target="_blank">VK</a>|
-    <a href="https://t.me/@iternsky" target="_blank">Telegram</a>|
-    <a href="https://instagram.com/ilyaaaa_tern97">Instagram</a>
+                <p>Я люблю <em> смотреть кино, играть в футбол, готовить и программировать.</em></p>
 
-    <h3>Мои хобби</h3>
+                <h4><strong>Список социальных сетей:</strong></h4>
 
-    <ul>
-        <li>Футбол</li>
-        <li>Кулинария</li>
-        <li>Прогулки</li>
-        <li>Разработка</li>
-        <li>Путешествия</li>
-    </ul>
-
-    <h3>Опыт работы</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Название</th>
-                <th>Должность</th>
-                <th>Год</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>De Kas</td>
-                <td>Повар</td>
-                <td>2019-2022</td>
-            </tr>
-            <tr>
-                <td>Union Jack</td>
-                <td>Су-шеф</td>
-                <td>2022-2023</td>
-            </tr>
-            <tr>
-                <td>Ibis Hotel</td>
-                <td>Су-шеф</td>
-                <td>2023-2023</td>
-            </tr>
-            <tr>
-                <td>Куркума</td>
-                <td>Повар</td>
-                <td>2023-сейчас</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>Связаться со мной</h3>
-    <form >
-        <div>
-            <label for="name">Ваше имя:</label>
-            <input type="text" id="name" placeholder="Введите имя">
+                <a href="https://vk.com/id97466669" target="_blank">VK</a>|
+                <a href="https://t.me/@iternsky" target="_blank">Telegram</a>|
+                <a href="https://instagram.com/ilyaaaa_tern97">Instagram</a>
+            </div>
         </div>
 
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Введите email">
+        <div class="card bg-green">
+            <h2>Мои хобби</h2>
+
+            <ol class="list">
+                <li>Футбол</li>
+                <li>Кулинария</li>
+                <li>Прогулки</li>
+                <li>Разработка</li>
+                <li>Путешествия</li>
+            </ol>
         </div>
 
-        <div>
-            <label for="message">Ваше сообщение:</label>
-            <br>
-            <textarea id="message" cols="20" rows="5" placeholder="Введите сообщение..."></textarea>
+        <div class="card bg-red">
+            <h2>Опыт работы</h2>
+
+            <table class="table">
+                <!-- <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Должность</th>
+                        <th>Год</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <tr>
+                        <td>Nemo</td>
+                        <td>Повар универсал</td>
+                        <td>2017-2018</td>
+                    </tr>
+                    <tr>
+                        <td>Shizgara</td>
+                        <td>Повар универсал</td>
+                        <td>2017-2018</td>
+                    </tr>
+                    <tr>
+                        <td>Карамель/Баренц</td>
+                        <td>Повар горячего цеха</td>
+                        <td>2018-2019</td>
+                    </tr>
+                    <tr>
+                        <td>De Kas</td>
+                        <td>Повар универсал</td>
+                        <td>2019-2022</td>
+                    </tr>
+                    <tr>
+                        <td>Union Jack</td>
+                        <td>Су-шеф</td>
+                        <td>2022-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Ibis Hotel</td>
+                        <td>Су-шеф</td>
+                        <td>2023-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Куркума</td>
+                        <td>Повар горячего цеха</td>
+                        <td>2023-сейчас</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <button type="submit">Отправить!</button>
-    </form>
+        <div class="card bg-yellow">
+            <h2>Мои работы</h2>
 
+            <ul class="link-list">
+                <li>
+                    <a href="http://ideadasha.ru.swtest.ru/">Сайт по продаже детских товаров</a>
+                </li>
+                <li>
+                    <a href="https://drive.google.com/drive/folders/1NSVgkemK_-52KT-hsLREAegDdAtbw2E9">Разработка сайта для студии печати на одежде</a>
+                </li>
+                <li><a href="https://drive.google.com/drive/folders/1ons85h0v-qRlXpIkufPEvmpsvoKPgO0j">Тестирование вэб приложения</a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <form action="/" class="form">
+            <h2>Связаться со мной</h2>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" placeholder="Введите имя">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Введите email">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Ваше сообщение:</label>
+                <textarea id="message" cols="20" rows="5" placeholder="Введите сообщение..."></textarea>
+            </div>
+
+            <input class="btn" type="submit" value="Отправить!">
+        </form>
+
+    </div>
 </body>
 </html>
