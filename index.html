@@ -1,139 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Resume, cv, Ilya">
-    <meta name="description" content="Это сайт-резюме Ильи Терновского">
+    <meta name="keywords" content="Resume, cv, Ilya, Ternovskiy, разработчик, повар">
+    <meta name="description" content="Сайт-резюме Ильи Терновского — повар и frontend-разработчик">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Ilya Resume</title>
+    <title>Илья Терновский — Повар · Frontend Developer</title>
 </head>
 <body>
 
-    <div class="container">
+    <!-- Анимированный бэкграунд -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-grain" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
 
-        <div class="info">
-            <img src="imgs/avatar.jpg" alt="аватар Илья Терновский" class="avatar">
-
-            <div class="info-text">
-                <h1>Илья Терновский</h1>
-                
-                <p>Я <strong> работаю поваром</strong> и <strong>изучаю вэб-разработку</strong> в свободное время.</p>
-
-                <p>Я люблю <em> смотреть кино, играть в футбол, готовить и программировать.</em></p>
-
-                <h4><strong>Список социальных сетей:</strong></h4>
-
-                <a href="https://vk.com/id97466669" target="_blank">VK</a>|
-                <a href="https://t.me/@iternsky" target="_blank">Telegram</a>|
-                <a href="https://instagram.com/ilyaaaa_tern97">Instagram</a>
-            </div>
-        </div>
-
-        <div class="card bg-green">
-            <h2>Мои хобби</h2>
-
-            <ol class="list">
-                <li>Футбол</li>
-                <li>Кулинария</li>
-                <li>Прогулки</li>
-                <li>Разработка</li>
-                <li>Путешествия</li>
-            </ol>
-        </div>
-
-        <div class="card bg-red">
-            <h2>Опыт работы</h2>
-
-            <table class="table">
-                <!-- <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Должность</th>
-                        <th>Год</th>
-                    </tr>
-                </thead> -->
-                <tbody>
-                    <tr>
-                        <td>Nemo</td>
-                        <td>Повар универсал</td>
-                        <td>2017-2018</td>
-                    </tr>
-                    <tr>
-                        <td>Shizgara</td>
-                        <td>Повар универсал</td>
-                        <td>2017-2018</td>
-                    </tr>
-                    <tr>
-                        <td>Карамель/Баренц</td>
-                        <td>Повар горячего цеха</td>
-                        <td>2018-2019</td>
-                    </tr>
-                    <tr>
-                        <td>De Kas</td>
-                        <td>Повар универсал</td>
-                        <td>2019-2022</td>
-                    </tr>
-                    <tr>
-                        <td>Union Jack</td>
-                        <td>Су-шеф</td>
-                        <td>2022-2023</td>
-                    </tr>
-                    <tr>
-                        <td>Ibis Hotel</td>
-                        <td>Су-шеф</td>
-                        <td>2023-2023</td>
-                    </tr>
-                    <tr>
-                        <td>Куркума</td>
-                        <td>Повар горячего цеха</td>
-                        <td>2023-сейчас</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="card bg-yellow">
-            <h2>Мои работы</h2>
-
-            <ul class="link-list">
-                <li>
-                    <a href="http://ideadasha.ru.swtest.ru/">Сайт по продаже детских товаров</a>
-                </li>
-                <li>
-                    <a href="https://drive.google.com/drive/folders/1NSVgkemK_-52KT-hsLREAegDdAtbw2E9">Разработка сайта для студии печати на одежде</a>
-                </li>
-                <li><a href="https://drive.google.com/drive/folders/1ons85h0v-qRlXpIkufPEvmpsvoKPgO0j">Тестирование вэб приложения</a>
-                </li>
-            </ul>
-        </div>
-
-        
-        <form action="/" class="form">
-            <h2>Связаться со мной</h2>
-
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label for="name">Ваше имя:</label>
-                    <input type="text" id="name" placeholder="Введите имя">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Введите email">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Ваше сообщение:</label>
-                <textarea id="message" cols="20" rows="5" placeholder="Введите сообщение..."></textarea>
-            </div>
-
-            <input class="btn" type="submit" value="Отправить!">
-        </form>
-
+    <!-- Кастомный курсор -->
+    <div class="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
     </div>
+
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__inner">
+                <div class="hero__avatar-wrap reveal" data-reveal="fade-up">
+                    <div class="hero__avatar-ring"></div>
+                    <img src="imgs/avatar.jpg" alt="Илья Терновский" class="hero__avatar">
+                    <div class="hero__status">
+                        <span class="status-dot"></span>
+                        Open to work
+                    </div>
+                </div>
+
+                <div class="hero__text">
+                    <p class="hero__greeting reveal" data-reveal="fade-up" data-delay="100">Привет, меня зовут</p>
+                    <h1 class="hero__name reveal" data-reveal="fade-up" data-delay="200">
+                        <span class="hero__name-line">Илья</span>
+                        <span class="hero__name-line hero__name-line--accent">Терновский</span>
+                    </h1>
+                    <p class="hero__role reveal" data-reveal="fade-up" data-delay="300">
+                        <span class="typed" data-typed='["Повар с 7+ годами опыта", "Frontend-разработчик", "Люблю готовить и кодить"]'></span>
+                        <span class="typed-cursor">|</span>
+                    </p>
+                    <p class="hero__bio reveal" data-reveal="fade-up" data-delay="400">
+                        Работаю поваром и изучаю веб-разработку. Свободное время провожу за
+                        просмотром кино, футболом, готовкой и программированием.
+                    </p>
+
+                    <div class="hero__cta reveal" data-reveal="fade-up" data-delay="500">
+                        <a href="#contact" class="btn btn--primary magnetic" data-magnetic>
+                            <span>Связаться</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#works" class="btn btn--ghost magnetic" data-magnetic>
+                            <span>Мои работы</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__socials reveal" data-reveal="fade-up" data-delay="600">
+                <a href="https://vk.com/id97466669" target="_blank" rel="noopener" class="social-link" data-magnetic>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.08 14.27h-1.45c-.55 0-.72-.44-1.7-1.43-.86-.83-1.23-.95-1.44-.95-.3 0-.39.09-.39.5v1.31c0 .35-.11.57-1.04.57-1.54 0-3.24-.93-4.44-2.66C7.84 11.6 7.31 9.85 7.31 9.46c0-.21.09-.41.5-.41h1.45c.37 0 .51.17.65.57.71 2.06 1.91 3.86 2.4 3.86.19 0 .27-.09.27-.55V11c-.06-1-.59-1.08-.59-1.43 0-.17.14-.34.36-.34h2.28c.31 0 .42.17.42.54v2.88c0 .31.13.42.22.42.19 0 .34-.11.69-.46 1.06-1.18 1.81-3.01 1.81-3.01.1-.21.27-.41.64-.41h1.45c.43 0 .53.22.43.54-.18.83-1.92 3.28-1.92 3.28-.15.24-.21.35 0 .63.15.21.66.65 1 1.04.62.7 1.09 1.29 1.22 1.69.13.41-.08.62-.5.62z"/></svg>
+                    <span>VK</span>
+                </a>
+                <a href="https://t.me/@iternsky" target="_blank" rel="noopener" class="social-link" data-magnetic>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://instagram.com/ilyaaaa_tern97" target="_blank" rel="noopener" class="social-link" data-magnetic>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- HOBBIES -->
+        <section class="card glass reveal" id="hobbies" data-reveal="fade-up">
+            <div class="card__header">
+                <span class="card__num">01</span>
+                <h2 class="card__title">Мои хобби</h2>
+            </div>
+            <ul class="hobby-list">
+                <li class="hobby-item" data-magnetic><span class="hobby-item__icon">⚽</span><span>Футбол</span></li>
+                <li class="hobby-item" data-magnetic><span class="hobby-item__icon">🍳</span><span>Кулинария</span></li>
+                <li class="hobby-item" data-magnetic><span class="hobby-item__icon">🌳</span><span>Прогулки</span></li>
+                <li class="hobby-item" data-magnetic><span class="hobby-item__icon">💻</span><span>Разработка</span></li>
+                <li class="hobby-item" data-magnetic><span class="hobby-item__icon">✈️</span><span>Путешествия</span></li>
+            </ul>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="card glass reveal" id="experience" data-reveal="fade-up">
+            <div class="card__header">
+                <span class="card__num">02</span>
+                <h2 class="card__title">Опыт работы</h2>
+            </div>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">Куркума</h3>
+                            <span class="timeline-item__period">2023 — сейчас</span>
+                        </div>
+                        <p class="timeline-item__role">Повар горячего цеха</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">Ibis Hotel</h3>
+                            <span class="timeline-item__period">2023</span>
+                        </div>
+                        <p class="timeline-item__role">Су-шеф</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">Union Jack</h3>
+                            <span class="timeline-item__period">2022 — 2023</span>
+                        </div>
+                        <p class="timeline-item__role">Су-шеф</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">De Kas</h3>
+                            <span class="timeline-item__period">2019 — 2022</span>
+                        </div>
+                        <p class="timeline-item__role">Повар универсал</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">Карамель / Баренц</h3>
+                            <span class="timeline-item__period">2018 — 2019</span>
+                        </div>
+                        <p class="timeline-item__role">Повар горячего цеха</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-item__dot"></div>
+                    <div class="timeline-item__body">
+                        <div class="timeline-item__head">
+                            <h3 class="timeline-item__place">Nemo · Shizgara</h3>
+                            <span class="timeline-item__period">2017 — 2018</span>
+                        </div>
+                        <p class="timeline-item__role">Повар универсал</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- WORKS -->
+        <section class="card glass reveal" id="works" data-reveal="fade-up">
+            <div class="card__header">
+                <span class="card__num">03</span>
+                <h2 class="card__title">Мои работы</h2>
+            </div>
+            <div class="works-grid">
+                <a href="http://ideadasha.ru.swtest.ru/" target="_blank" rel="noopener" class="work-card" data-magnetic>
+                    <div class="work-card__icon">🛒</div>
+                    <h3 class="work-card__title">Магазин детских товаров</h3>
+                    <p class="work-card__desc">Сайт по продаже детских товаров с каталогом и корзиной</p>
+                    <span class="work-card__arrow">→</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1NSVgkemK_-52KT-hsLREAegDdAtbw2E9" target="_blank" rel="noopener" class="work-card" data-magnetic>
+                    <div class="work-card__icon">👕</div>
+                    <h3 class="work-card__title">Студия печати на одежде</h3>
+                    <p class="work-card__desc">Разработка сайта для студии печати на одежде</p>
+                    <span class="work-card__arrow">→</span>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1ons85h0v-qRlXpIkufPEvmpsvoKPgO0j" target="_blank" rel="noopener" class="work-card" data-magnetic>
+                    <div class="work-card__icon">🧪</div>
+                    <h3 class="work-card__title">Тестирование веб-приложения</h3>
+                    <p class="work-card__desc">QA-тестирование функциональности и багов</p>
+                    <span class="work-card__arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="card glass reveal" id="contact" data-reveal="fade-up">
+            <div class="card__header">
+                <span class="card__num">04</span>
+                <h2 class="card__title">Связаться со мной</h2>
+            </div>
+            <!--
+                Form is wired to Formspree.
+                Replace FORMSPREE_ENDPOINT below with your own ID
+                (see README.md for setup instructions).
+            -->
+            <form
+                action="https://formspree.io/f/xzdnbolz"
+                method="POST"
+                class="form"
+                id="contact-form"
+                novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" placeholder="Иван" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Расскажите, чем могу помочь..." required></textarea>
+                </div>
+
+                <!-- Honeypot: anti-spam, скрытое поле — боты заполнят, люди нет -->
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+                <!-- Тема письма (видна у тебя на почте) -->
+                <input type="hidden" name="_subject" value="Новое сообщение с резюме Ильи Терновского">
+
+                <!-- Редирект после успешной отправки (AJAX-перехват в script.js) -->
+                <input type="hidden" name="_format" value="json">
+
+                <div class="form__footer">
+                    <button type="submit" class="btn btn--primary btn--lg magnetic" data-magnetic>
+                        <span>Отправить сообщение</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                    <p class="form__status" id="form-status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Илья Терновский · Сделано с ❤ и кодом</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
