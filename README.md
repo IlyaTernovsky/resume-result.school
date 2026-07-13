@@ -2,7 +2,7 @@
 
 Сайт-резюме Ильи Терновского — повар и frontend-разработчик.
 
-🔗 [Открыть резюме](https://ilyaternovsky.github.io/resume-result.school/)
+🔗 [Открыть резюме](https://ilyaternovsky.github.io/RESUME/)
 
 ## Стек
 - HTML5 + CSS3 (тёмная тема, glassmorphism, анимации)
